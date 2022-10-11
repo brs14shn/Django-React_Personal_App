@@ -12,7 +12,7 @@ class DepartmentSerializer(serializers.ModelSerializer) :
     personal_count = serializers.SerializerMethodField()
     class Meta:
         model =Department
-        fields =("id","name")
+        fields =("id","name","personal_count")
 
     def get_personal_count(self,obj):
         return Personal.objects.filter(department =obj.id).count()
@@ -21,7 +21,7 @@ class DepartmentSerializer(serializers.ModelSerializer) :
 class PersonalSerializer(serializers.ModelSerializer):
     days_since_joined = serializers.SerializerMethodField()
 
-    create_user =serializer.StringRelatedField()
+    create_user =serializers.StringRelatedField()
    
     class Meta:
         model =Personal
