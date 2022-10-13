@@ -57,6 +57,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             )
         return data
 
+#! login olduğunda dönecek veriler
 class UserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
     class Meta:
